@@ -1,0 +1,22 @@
+{
+  "name": "freenet/acceptance-tests",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexey Zakhlestin",
+      "email": "indeyets@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "behat/mink-extension": "~2.0.1",
+    "behat/mink-goutte-driver": "~1.1.0",
+    "behat/mink-selenium2-driver": "~1.2.0"
+  },
+  "autoload": {
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}

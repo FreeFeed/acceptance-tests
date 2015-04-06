@@ -1,0 +1,7 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url:  'http://freefeed.net'
+      sessions:
+        default:
+          goutte: ~
