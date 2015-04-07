@@ -1,5 +1,6 @@
 Feature: Authorization
 As a user that has been registered on the site, I want to be able to access my account settings and my feed in order to enjoy new information in my feed and contact with my friends.
+#doc: https://docs.google.com/document/d/12juTn1Szm-TRf-sYDzVXD_soJ4fgceH70bxGV7q6of4/edit#
 
 #pages: Login (home), Login error (/account/login?v=2)
 #todo:
