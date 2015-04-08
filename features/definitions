@@ -1,0 +1,23 @@
+Header: 
+Home: http://freefeed.net
+Search: http://freefeed.net/search/advanced
+Tools: http://freefeed.net/about/tools
+
+Sidebar:
+Direct: http://freefeed.net/filter/direct
+Discussions: http://freefeed.net/filter/discussions
+Best of day: http://freefeed.net/summary/1
+List: http://freefeed.net/list/LIST_NAME
+Friends: http://freefeed.net/friends
+Groups: http://freefeed.net/groups
+
+Other:
+Login: http://freefeed.net/login
+Login error: http://freefeed.net/login?v=2
+Registration: http://freefeed.net/register
+Best of week: http://freefeed.net/summary/7
+Best of month: http://freefeed.net/summary/30
+Best of from list: http://freefeed.net/list/LIST_NAME/summary/1
+Group: http://freefeed.net/GROUP_NAME
+Search results: http://freefeed.net/search?q=dsfsd
+Save search: http://freefeed.net/filter?q=dsfsd
