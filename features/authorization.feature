@@ -9,7 +9,7 @@ As a user that has been registered on the site, I want to be able to access my a
 #imaginary Scenario: 10 attempts to sign in with wrong password - CAPTCHA displayed.
 
 
-Scenario: Log in to the site
+  Scenario: Log in to the site
   Given I am on "login" page
     And I am registered user
     And I have username "_testuser"
@@ -21,7 +21,7 @@ Scenario: Log in to the site
     And I should see "Sign out" 
 #page elements should be verified separately in feed view tests. presence of sign out confirms that we're logged in and no errors had happened during login.
 
-Scenario: Unregistered 
+  Scenario: Unregistered 
   Given I am on "login" page
     And I am unregistered user
   When I fill in "Username" with "_untestuser"
@@ -29,47 +29,48 @@ Scenario: Unregistered
     And press "Sign in"
   Then I should be on "login error" page
 #replace with regexp?
-#placeholder url
     And I should see "We could not find the nickname you provided."
     And I should see "New to FreeFeed? Create an account »".
 
-Scenario: Wrong password
+  Scenario: Wrong password
   Given I am on "login" page
     And I am registered user
   When I fill in "Username" with "_testuser"
     And fill in "Password" with "unntcnbhjdfybt"
     And press "Sign in"
-  Then I should be on https://freefeed.net/account/login?v=2
+  Then I should be on "login error" page
 #replace with regexp?
-#placeholder url
     And I should see "The password you provided does not match the password in our system."
-    And I should see "New to FreeFeed? Create an account »".
+    And I should see "New to FreeFeed? Create an account»".
     
-Scenario: Two empty fields
+  Scenario: Two empty fields
   Given I am on "login" page
   When I press "Sign in"
   Then I should be on "home" page
-    And I should see "Error: user undefined doesn't exist"
+#on Friendfeed no error is displayed. on pepyatka:
+#And I should see "Error: user undefined doesn't exist"
 #Error: Please enter username and password
 
-Scenario: Empty username field
+  Scenario: Empty username field
   Given I am on "login" page
   When I fill in "Password" with "ntcnbhjdfybt"
     And press "Sign in"
   Then I should be on "home" page
-    And I should see "Error: user undefined doesn't exist"
+#on Friendfeed no error is displayed. on pepyatka:
+#And I should see "Error: user undefined doesn't exist"
 #Error: Please enter username
 
-Scenario: Empty password field
+  Scenario: Empty password field
   Given I am on "login" page
   When I fill in "Username" with "_testuser"
     And press "Sign in"
   Then I should be on "home" page
-    And I should see "Error: user _testuser doesn't exist"
+#on Friendfeed no error is displayed. on pepyatka:
+#And I should see "Error: user undefined doesn't exist"
+#Error: Please enter password
 
-Scenario: Reach Create account page from login error
+  Scenario: Reach Create account page from login error
   Given I am on "login error" page
   When I press "Create an account"
     And press "Sign in"
   Then I should be on "Registration" page
-#placeholder url
