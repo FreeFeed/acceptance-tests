@@ -1,7 +1,8 @@
 default:
   extensions:
     Behat\MinkExtension:
-      base_url:  'http://freefeed.net'
+      base_url:  'http://micropeppa.freefeed.net'
       sessions:
         default:
-          goutte: ~
+          selenium2:
+            browser: chrome
