@@ -20,7 +20,6 @@ Feature: Page elements.
 
   Scenario: Home page, not logged in
     Given I am on the homepage
-      And I am not logged in
      Then I should see "Create an account"
       And I should see "Already have an account?"
       And I should see "Username"
@@ -37,7 +36,6 @@ Feature: Page elements.
   
   Scenario: Sign in leads to login page
     Given I am on the homepage
-      And I am not logged in
      When I follow "Sign In"
      Then I should be on "login" page
       And I should see "Already have an account?"
@@ -58,7 +56,6 @@ Feature: Page elements.
 
   Scenario: Sign Up leads to account creation page
     Given I am on the homepage
-      And I am not logged in
      When I follow "Sign Up"
      Then I should be on "registration" page
       And I should see "Username"
