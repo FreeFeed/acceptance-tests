@@ -1,0 +1,18 @@
+Pages:
+  search: /search/advanced
+  tools: /about/tools
+  direct: /filter/direct
+  discussions: /filter/discussions
+  #list: /list/LIST_NAME
+  friends: /friends
+  groups: /groups
+  login: /login
+  "login error": /login?v=2
+  registration: /register
+  "best of day": /summary/1
+  "best of week": /summary/7
+  "best of month": /summary/30
+  #"best of from list": /list/LIST_NAME/summary/1
+  #group: /GROUP_NAME
+  #search results: /search?q=dsfsd
+  #save search: /filter?q=dsfsd

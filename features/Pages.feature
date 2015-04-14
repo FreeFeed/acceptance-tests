@@ -39,7 +39,7 @@ Feature: Page elements.
     Given I am on the homepage
       And I am not logged in
      When I follow "Sign In"
-     Then I should be on login page
+     Then I should be on "login" page
       And I should see "Already have an account?"
       And I should see "Created an account via Google, Facebook, or Twitter? Sign in here"
       And I should see "Username"
@@ -60,7 +60,7 @@ Feature: Page elements.
     Given I am on the homepage
       And I am not logged in
      When I follow "Sign Up"
-     Then I should be on registration page
+     Then I should be on "registration" page
       And I should see "Username"
       And I should see "Password"
       And I should see "Confirm Password"
