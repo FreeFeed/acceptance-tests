@@ -16,3 +16,6 @@ Pages:
   #group: /GROUP_NAME
   #search results: /search?q=dsfsd
   #save search: /filter?q=dsfsd
+Elements:
+  footer: "footer"
+  "list of my groups": "div.box-header-groups"

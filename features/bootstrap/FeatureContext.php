@@ -22,7 +22,10 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
     public function __construct()
     {
         $definitions_path = realpath(__DIR__.'/..').'/Definitions.yaml';
-        $this->pages = \Symfony\Component\Yaml\Yaml::parse($definitions_path)['Pages'];
+        $definitions = \Symfony\Component\Yaml\Yaml::parse($definitions_path);
+
+        $this->pages = $definitions['Pages'];
+        $this->elements = $definitions['Elements'];
     }
 
     /**
@@ -52,5 +55,33 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
         }
 
         $this->assertSession()->addressEquals($this->locatePath($this->pages[$name]));
+    }
+
+    /**
+     * Checks, that specified named element exists on page.
+     *
+     * @Then /^(?:|I )should see an? (?P<name>[^"]*)$/
+     */
+    public function assertNamedElementOnPage($name)
+    {
+        if (!array_key_exists($name, $this->elements)) {
+            throw new \LogicException("Element named '{$name}' is not listed in Definitions.yaml");
+        }
+
+        $this->assertSession()->elementExists('css', $this->elements[$name]);
+    }
+
+    /**
+     * Checks, that specified named element doesn't exist on page.
+     *
+     * @Then /^(?:|I )should not see an? (?P<name>[^"]*)$/
+     */
+    public function assertNamedElementNotOnPage($name)
+    {
+        if (!array_key_exists($name, $this->elements)) {
+            throw new \LogicException("Element named '{$name}' is not listed in Definitions.yaml");
+        }
+
+        $this->assertSession()->elementNotExists('css', $this->elements[$name]);
     }
 }

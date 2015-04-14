@@ -25,14 +25,14 @@ Feature: Page elements.
       And I should see "Already have an account?"
       And I should see "Username"
       And I should see "Password"
-      And I should see footer
+      And I should see a footer
       And I should not see "Home"
       And I should not see "Direct Messages"
       And I should not see "My discussions"
       And I should not see "Best of day"
       And I should not see "Browse/edit friends"
       And I should not see "Groups"
-      And I should not see list of my groups
+      And I should not see a list of my groups
       And I should not see "Browse/edit groups"
   
   Scenario: Sign in leads to login page
@@ -45,14 +45,14 @@ Feature: Page elements.
       And I should see "Username"
       And I should see "Password"
       And I should see "Sign In" button
-      And I should see footer
+      And I should see a footer
       And I should not see "Home"
       And I should not see "Direct Messages"
       And I should not see "My discussions"
       And I should not see "Best of day"
       And I should not see "Browse/edit friends"
       And I should not see "Groups"
-      And I should not see list of my groups
+      And I should not see a list of my groups
       And I should not see "Browse/edit groups"
 #authorization.feature starts
 
@@ -66,13 +66,13 @@ Feature: Page elements.
       And I should see "Confirm Password"
       And I should see "Enter display name"
       And I should see "Sign Up" button
-      And I should see footer
+      And I should see a footer
       And I should not see "Home"
       And I should not see "Direct Messages"
       And I should not see "My discussions"
       And I should not see "Best of day"
       And I should not see "Browse/edit friends"
       And I should not see "Groups"
-      And I should not see list of my groups
+      And I should not see a list of my groups
       And I should not see "Browse/edit groups"
   
