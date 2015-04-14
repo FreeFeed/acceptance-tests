@@ -84,4 +84,14 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
 
         $this->assertSession()->elementNotExists('css', $this->elements[$name]);
     }
+
+    /**
+     * Checks, that specified named element exists on page.
+     *
+     * @Then /^(?:|I )should see "(?P<label>[^"]*)" button$/
+     */
+    public function assertButtonOnPage($label)
+    {
+        $this->assertSession()->elementExists('css', "button[value={$label}]");
+    }
 }
