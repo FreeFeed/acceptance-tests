@@ -1,76 +1,78 @@
-Feature: Authorization
-As a user that has been registered on the site, I want to be able to access my account settings and my feed in order to enjoy new information in my feed and contact with my friends.
-#doc: https://docs.google.com/document/d/12juTn1Szm-TRf-sYDzVXD_soJ4fgceH70bxGV7q6of4/edit#
+Feature: Authorization.
+  As a user that has been registered on the site, I want to be able to access
+  my account settings and my feed in order to enjoy new information in my feed
+  and contact with my friends.
 
-#pages: Login (home), Login error (/account/login?v=2)
-#todo:
-#Scenario: Login with Twitter
-#Scenario: Login with Facebook
-#imaginary Scenario: 10 attempts to sign in with wrong password - CAPTCHA displayed.
+  #doc: https://docs.google.com/document/d/12juTn1Szm-TRf-sYDzVXD_soJ4fgceH70bxGV7q6of4/edit#
 
+  #pages: Login (home), Login error (/account/login?v=2)
+  #todo:
+  #Scenario: Login with Twitter
+  #Scenario: Login with Facebook
+  #imaginary Scenario: 10 attempts to sign in with wrong password - CAPTCHA displayed.
 
   Scenario: Log in to the site
-  Given I am on "login" page
-    And I am registered user
-    And I have username "_testuser"
-    And I have password "ntcnbhjdfybt"
-  When I fill in "Username" with "_testuser"
-    And fill in "Password" with "ntcnbhjdfybt"
-    And press "Sign in"
-  Then I should be on "home" page
-    And I should see "Sign out" 
-#page elements should be verified separately in feed view tests. presence of sign out confirms that we're logged in and no errors had happened during login.
+    Given I am on "login" page
+      And I am registered user
+      And I have username "_testuser"
+      And I have password "ntcnbhjdfybt"
+     When I fill in "Username" with "_testuser"
+      And fill in "Password" with "ntcnbhjdfybt"
+      And press "Sign in"
+     Then I should be on "home" page
+      And I should see "Sign out"
+          #page elements should be verified separately in feed view tests. presence of sign out confirms that we're logged in and no errors had happened during login.
 
   Scenario: Unregistered 
-  Given I am on "login" page
-    And I am unregistered user
-  When I fill in "Username" with "_untestuser"
-    And fill in "Password" with "ntcnbhjdfybt"
-    And press "Sign in"
-  Then I should be on "login error" page
-#replace with regexp?
-    And I should see "We could not find the nickname you provided."
-    And I should see "New to FreeFeed? Create an account »".
+    Given I am on "login" page
+      And I am unregistered user
+     When I fill in "Username" with "_untestuser"
+      And fill in "Password" with "ntcnbhjdfybt"
+      And press "Sign in"
+     Then I should be on "login error" page
+          #replace with regexp?
+      And I should see "We could not find the nickname you provided."
+      And I should see "New to FreeFeed? Create an account »".
 
   Scenario: Wrong password
-  Given I am on "login" page
-    And I am registered user
-  When I fill in "Username" with "_testuser"
-    And fill in "Password" with "unntcnbhjdfybt"
-    And press "Sign in"
-  Then I should be on "login error" page
-#replace with regexp?
-    And I should see "The password you provided does not match the password in our system."
-    And I should see "New to FreeFeed? Create an account»".
+    Given I am on "login" page
+      And I am registered user
+     When I fill in "Username" with "_testuser"
+      And fill in "Password" with "unntcnbhjdfybt"
+      And press "Sign in"
+     Then I should be on "login error" page
+          #replace with regexp?
+      And I should see "The password you provided does not match the password in our system."
+      And I should see "New to FreeFeed? Create an account»".
     
   Scenario: Two empty fields
-  Given I am on "login" page
-  When I press "Sign in"
-  Then I should be on "home" page
-#on Friendfeed no error is displayed. on pepyatka:
-#And I should see "Error: user undefined doesn't exist"
-#Error: Please enter username and password
+    Given I am on "login" page
+     When I press "Sign in"
+     Then I should be on "home" page
+          #on Friendfeed no error is displayed. on pepyatka:
+    # And I should see "Error: user undefined doesn't exist"
+          #Error: Please enter username and password
 
   Scenario: Empty username field
-  Given I am on "login" page
-  When I fill in "Password" with "ntcnbhjdfybt"
-    And press "Sign in"
-  Then I should be on "home" page
-#on Friendfeed no error is displayed. on pepyatka:
-#And I should see "Error: user undefined doesn't exist"
-#Error: Please enter username
+    Given I am on "login" page
+     When I fill in "Password" with "ntcnbhjdfybt"
+      And press "Sign in"
+     Then I should be on "home" page
+          #on Friendfeed no error is displayed. on pepyatka:
+    # And I should see "Error: user undefined doesn't exist"
+          #Error: Please enter username
 
   Scenario: Empty password field
-  Given I am on "login" page
-  When I fill in "Username" with "_testuser"
-    And press "Sign in"
-  Then I should be on "home" page
-#on Friendfeed no error is displayed. on pepyatka:
-#And I should see "Error: user undefined doesn't exist"
-#Error: Please enter password
+    Given I am on "login" page
+     When I fill in "Username" with "_testuser"
+      And press "Sign in"
+     Then I should be on "home" page
+          #on Friendfeed no error is displayed. on pepyatka:
+    # And I should see "Error: user undefined doesn't exist"
+          #Error: Please enter password
 
   Scenario: Reach Create account page from login error
-  Given I am on "login error" page
-  When I press "Create an account"
-    And press "Sign in"
-  Then I should be on "Registration" page
+    Given I am on "login error" page
+     When I press "Create an account"
+      And press "Sign in"
+     Then I should be on "Registration" page
