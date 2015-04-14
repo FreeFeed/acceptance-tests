@@ -32,7 +32,7 @@ Feature: Authorization.
      Then I should be on "login error" page
           #replace with regexp?
       And I should see "We could not find the nickname you provided."
-      And I should see "New to FreeFeed? Create an account »".
+      And I should see "New to FreeFeed? Create an account »"
 
   Scenario: Wrong password
     Given I am on "login" page
@@ -43,7 +43,7 @@ Feature: Authorization.
      Then I should be on "login error" page
           #replace with regexp?
       And I should see "The password you provided does not match the password in our system."
-      And I should see "New to FreeFeed? Create an account»".
+      And I should see "New to FreeFeed? Create an account »"
     
   Scenario: Two empty fields
     Given I am on "login" page
