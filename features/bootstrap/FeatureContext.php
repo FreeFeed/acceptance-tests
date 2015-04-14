@@ -29,6 +29,16 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
     }
 
     /**
+     * Creates user, if one doesn't exist yet
+     *
+     * @Given There is a user ":login" with password ":password"
+     */
+    public function createUser($login, $password)
+    {
+        throw new \Behat\Behat\Tester\Exception\PendingException('TODO: user creation is not implemented yet');
+    }
+
+    /**
      * Opens named page
      *
      * @Given /^(?:|I )am on "(?P<name>[\w\s]+)" page$/

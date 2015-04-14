@@ -13,9 +13,7 @@ Feature: Authorization.
 
   Scenario: Log in to the site
     Given I am on "login" page
-      And I am registered user
-      And I have username "_testuser"
-      And I have password "ntcnbhjdfybt"
+      And There is a user "_testuser" with password "ntcnbhjdfybt"
      When I fill in "Username" with "_testuser"
       And fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
@@ -25,9 +23,8 @@ Feature: Authorization.
 
   Scenario: Unregistered 
     Given I am on "login" page
-      And I am unregistered user
-     When I fill in "Username" with "_untestuser"
-      And fill in "Password" with "ntcnbhjdfybt"
+     When I fill in "Username" with "notexists"
+      And fill in "Password" with "notexists"
       And press "Sign in"
      Then I should be on "login error" page
           #replace with regexp?
@@ -36,7 +33,7 @@ Feature: Authorization.
 
   Scenario: Wrong password
     Given I am on "login" page
-      And I am registered user
+      And There is a user "_testuser" with password "ntcnbhjdfybt"
      When I fill in "Username" with "_testuser"
       And fill in "Password" with "unntcnbhjdfybt"
       And press "Sign in"
