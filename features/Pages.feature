@@ -19,7 +19,7 @@ Feature: Page elements.
   #done Registration
 
   Scenario: Home page, not logged in
-    Given I am on home page
+    Given I am on the homepage
       And I am not logged in
      Then I should see "Create an account"
       And I should see "Already have an account?"
@@ -36,7 +36,7 @@ Feature: Page elements.
       And I should not see "Browse/edit groups"
   
   Scenario: Sign in leads to login page
-    Given I am on home page
+    Given I am on the homepage
       And I am not logged in
      When I follow "Sign In"
      Then I should be on login page
@@ -57,7 +57,7 @@ Feature: Page elements.
 #authorization.feature starts
 
   Scenario: Sign Up leads to account creation page
-    Given I am on home page
+    Given I am on the homepage
       And I am not logged in
      When I follow "Sign Up"
      Then I should be on registration page

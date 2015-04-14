@@ -19,7 +19,7 @@ Feature: Authorization.
      When I fill in "Username" with "_testuser"
       And fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
-     Then I should be on "home" page
+     Then I should be on the homepage
       And I should see "Sign out"
           #page elements should be verified separately in feed view tests. presence of sign out confirms that we're logged in and no errors had happened during login.
 
@@ -48,7 +48,7 @@ Feature: Authorization.
   Scenario: Two empty fields
     Given I am on "login" page
      When I press "Sign in"
-     Then I should be on "home" page
+     Then I should be on the homepage
           #on Friendfeed no error is displayed. on pepyatka:
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter username and password
@@ -57,7 +57,7 @@ Feature: Authorization.
     Given I am on "login" page
      When I fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
-     Then I should be on "home" page
+     Then I should be on the homepage
           #on Friendfeed no error is displayed. on pepyatka:
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter username
@@ -66,7 +66,7 @@ Feature: Authorization.
     Given I am on "login" page
      When I fill in "Username" with "_testuser"
       And press "Sign in"
-     Then I should be on "home" page
+     Then I should be on the homepage
           #on Friendfeed no error is displayed. on pepyatka:
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter password
