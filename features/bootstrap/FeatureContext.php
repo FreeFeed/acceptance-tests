@@ -35,7 +35,19 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
      */
     public function createUser($login, $password)
     {
-        throw new \Behat\Behat\Tester\Exception\PendingException('TODO: user creation is not implemented yet');
+        $url = $this->locatePath('/v1/users');
+
+        $client = new \GuzzleHttp\Client();
+        try {
+            $response = $client->post($url, ['body' => ['username' => $login, 'password' => $password]]);
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            if ($e->getResponse()->getStatusCode() == 422) {
+                // user already exists
+                return;
+            }
+
+            throw $e;
+        }
     }
 
     /**
