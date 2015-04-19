@@ -5,10 +5,10 @@ Feature: Authorization.
 
   #doc: https://docs.google.com/document/d/12juTn1Szm-TRf-sYDzVXD_soJ4fgceH70bxGV7q6of4/edit#
 
-  #pages: Login (home), Login error (/account/login?v=2)
   #todo:
   #Scenario: Login with Twitter
   #Scenario: Login with Facebook
+  #Scenario: Login with Google
   #imaginary Scenario: 10 attempts to sign in with wrong password - CAPTCHA displayed.
 
   Scenario: Log in to the site
@@ -68,6 +68,20 @@ Feature: Authorization.
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter password
 
+  Scenario: Email not verified
+    Given I am on "login" page
+	  And there is a user "_testuser" with password "ntcnbhjdfybt" and email "freefeed.net+unverified@gmail.com"
+	  And email is not verified for "_testuser"
+     When I fill in "Username" with "_testuser"
+	  And fill in "Password" with "ntcnbhjdfybt"
+      And press "Sign in"
+     Then I should be on "Login error" page
+      And I should see "Your email address has not yet been verified. <a href="/account/
+reverifyemail?email=freefeed.net+unverified@gmail.com" target="_top">Re-send
+verification email &raquo;</a>"
+#emailverification.feature starts 
+		  
+		  
   Scenario: Reach Create account page from login error
     Given I am on "login error" page
      When I press "Create an account"

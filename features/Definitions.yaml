@@ -5,6 +5,9 @@ Pages:
   login: /login
   "login error": /login?v=2
   registration: /register
+  #"Find friends": ???
+  #"Recommendations": ???
+#this is registration step 2 pages
   "forgot password": /account/password
   #logout: /account/logout?next=CURRENT_PAGE_URL
   #--- User ---
@@ -54,8 +57,8 @@ Pages:
   "saved searches": /filter
   "group search": /groups/search
   #"search results": /search?q=QUERY+PARAMETER1+PARAMETER2
-  #parameters are locations for search: likes, friends, comments etc.
-  #example: http://friendfeed.com/search?q=friend+comment%3Akler+comments%3A123+incomment%3Asave+intitle%3Afeed+like%3Akler+likes%3A1+friends%3Akler
+#parameters are locations for search: likes, friends, comments etc.
+#example: http://friendfeed.com/search?q=friend+comment%3Akler+comments%3A123+incomment%3Asave+intitle%3Afeed+like%3Akler+likes%3A1+friends%3Akler
   #"pop-out search": /http://friendfeed.com/search?q=<QUERY>+<PARAMETER1>&embed=1
   #"save search": /filter?q=QUERY
   #--- Account---
