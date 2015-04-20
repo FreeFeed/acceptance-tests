@@ -14,19 +14,19 @@ Feature: Authorization.
   Scenario: Log in to the site
     Given I am on "login" page
       And There is a user "_testuser" with password "ntcnbhjdfybt"
-     When I fill in "Username" with "_testuser"
+    When I fill in "Username" with "_testuser"
       And fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
-     Then I should be on the homepage
+    Then I should be on the homepage
       And I should see "Sign out"
           #page elements should be verified separately in feed view tests. presence of sign out confirms that we're logged in and no errors had happened during login.
 
   Scenario: Unregistered 
     Given I am on "login" page
-     When I fill in "Username" with "notexists"
+    When I fill in "Username" with "notexists"
       And fill in "Password" with "notexists"
       And press "Sign in"
-     Then I should be on "login error" page
+    Then I should be on "login error" page
           #replace with regexp?
       And I should see "We could not find the nickname you provided."
       And I should see "New to FreeFeed? Create an account »"
@@ -34,36 +34,36 @@ Feature: Authorization.
   Scenario: Wrong password
     Given I am on "login" page
       And There is a user "_testuser" with password "ntcnbhjdfybt"
-     When I fill in "Username" with "_testuser"
+    When I fill in "Username" with "_testuser"
       And fill in "Password" with "unntcnbhjdfybt"
       And press "Sign in"
-     Then I should be on "login error" page
+    Then I should be on "login error" page
           #replace with regexp?
       And I should see "The password you provided does not match the password in our system."
       And I should see "New to FreeFeed? Create an account »"
     
   Scenario: Two empty fields
     Given I am on "login" page
-     When I press "Sign in"
-     Then I should be on the homepage
+    When I press "Sign in"
+    Then I should be on the homepage
           #on Friendfeed no error is displayed. on pepyatka:
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter username and password
 
   Scenario: Empty username field
     Given I am on "login" page
-     When I fill in "Password" with "ntcnbhjdfybt"
+    When I fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
-     Then I should be on the homepage
+    Then I should be on the homepage
           #on Friendfeed no error is displayed. on pepyatka:
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter username
 
   Scenario: Empty password field
     Given I am on "login" page
-     When I fill in "Username" with "_testuser"
+    When I fill in "Username" with "_testuser"
       And press "Sign in"
-     Then I should be on the homepage
+    Then I should be on the homepage
           #on Friendfeed no error is displayed. on pepyatka:
     # And I should see "Error: user undefined doesn't exist"
           #Error: Please enter password
@@ -72,18 +72,17 @@ Feature: Authorization.
     Given I am on "login" page
 	  And there is a user "_testuser" with password "ntcnbhjdfybt" and email "freefeed.net+unverified@gmail.com"
 	  And email is not verified for "_testuser"
-     When I fill in "Username" with "_testuser"
+    When I fill in "Username" with "_testuser"
 	  And fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
-     Then I should be on "Login error" page
+    Then I should be on "Login error" page
       And I should see "Your email address has not yet been verified. <a href="/account/
 reverifyemail?email=freefeed.net+unverified@gmail.com" target="_top">Re-send
 verification email &raquo;</a>"
 #emailverification.feature starts 
-		  
-		  
+		  	  
   Scenario: Reach Create account page from login error
     Given I am on "login error" page
-     When I press "Create an account"
+    When I press "Create an account"
       And press "Sign in"
-     Then I should be on "Registration" page
+    Then I should be on "Registration" page
