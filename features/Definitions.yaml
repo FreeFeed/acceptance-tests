@@ -2,9 +2,12 @@
 Pages:
   #+ pagination <number>: ?start=<number>
   #--- Reg/Log ---
-  login: /login
-  "login error": /login?v=2
-  registration: /register
+  login: /session/signin
+  # -> should be /login
+  "login error": /session/signin
+  # -> should be "/login?v=2"
+  registration: /users/signup
+  # -> should be /register
   #"Find friends": ???
   #"Recommendations": ???
 #this is registration step 2 pages
