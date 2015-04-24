@@ -76,9 +76,7 @@ Feature: Authorization.
 	  And fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
     Then I should be on "Login error" page
-      And I should see "Your email address has not yet been verified. <a href="/account/
-reverifyemail?email=freefeed.net+unverified@gmail.com" target="_top">Re-send
-verification email &raquo;</a>"
+      And I should see "Your email address has not yet been verified. <a href="/account/reverifyemail?email=freefeed.net+unverified@gmail.com" target="_top">Re-sendverification email &raquo;</a>"
 #emailverification.feature starts 
 		  	  
   Scenario: Reach Create account page from login error
