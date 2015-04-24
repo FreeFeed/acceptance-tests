@@ -118,6 +118,6 @@ Feature: Page elements.
 	  And I should see "Facebook" button
 	  And I should see "Google" button
 	  And I should see "Twitter" button
-	  And I should see "New to FriendFeed? Create an account"
+	  And I should see "Create an account"
 	  And I should see footer
   
