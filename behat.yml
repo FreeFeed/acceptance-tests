@@ -1,7 +1,7 @@
 default:
   extensions:
     Behat\MinkExtension:
-      base_url:  'https://micropeppa.freefeed.net'
+      base_url: 'http://localhost:3333'
       sessions:
         default:
           selenium2:

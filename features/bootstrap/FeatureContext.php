@@ -35,7 +35,7 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
      */
     public function createUser($login, $password)
     {
-        $url = $this->locatePath('/v1/users');
+        $url = $this->locateApiPath('/v1/users');
 
         $client = new \GuzzleHttp\Client();
         try {
@@ -48,6 +48,13 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext
 
             throw $e;
         }
+    }
+
+    public function locateApiPath($path)
+    {
+        $startUrl = "http://localhost:3000/";
+
+        return 0 !== strpos($path, 'http') ? $startUrl . ltrim($path, '/') : $path;
     }
 
     /**
