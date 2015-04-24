@@ -81,6 +81,5 @@ Feature: Authorization.
 		  	  
   Scenario: Reach Create account page from login error
     Given I am on "login error" page
-    When I press "Create an account"
-      And press "Sign in"
-    Then I should be on "Registration" page
+    When I follow "Create an account »"
+    Then I should be on "registration" page
