@@ -120,11 +120,7 @@ Feature: Page elements.
 	  And I should see "Facebook" button
 	  And I should see "Google" button
 	  And I should see "Twitter" button
-<<<<<<< HEAD
-	  And I should see "Create an account"
-=======
 	  And I should see "New to FreeFeed?"
 	  And I should see "Create an account"
->>>>>>> Naming changes
 	  And I should see footer
   
