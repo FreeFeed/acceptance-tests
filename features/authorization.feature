@@ -18,7 +18,7 @@ Feature: Authorization.
       And fill in "Password" with "ntcnbhjdfybt"
       And press "Sign in"
     Then I should be on the homepage
-      And I should see "Sign out"
+      And I should see "sign out"
           #page elements should be verified separately in feed view tests. presence of sign out confirms that we're logged in and no errors had happened during login.
 
   Scenario: Unregistered 
