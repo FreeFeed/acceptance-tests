@@ -50,7 +50,7 @@ Pages:
   #"human readable URL" consists of post`s latin words and numbrs concatenated with -, articles and links are omitted. If post contains no latin letters and numbers, "human readable url" is omitted.
   #"short URL": http://ff.im/<SHORT_ID>
   #"short ID" consists of 6 latin letters and numbers, case matters
-  #"file URL": http://m.friendfeed-media.com/<FILE_ID>
+  #"file URL": http://m.FreeFeed-media.com/<FILE_ID>
   #"file id" consists of 40 latin letters and numbers, case matters
   #--- List ---
   #list: /list/LIST_NAME
@@ -61,13 +61,13 @@ Pages:
   "group search": /groups/search
   #"search results": /search?q=QUERY+PARAMETER1+PARAMETER2
 #parameters are locations for search: likes, friends, comments etc.
-#example: http://friendfeed.com/search?q=friend+comment%3Akler+comments%3A123+incomment%3Asave+intitle%3Afeed+like%3Akler+likes%3A1+friends%3Akler
-  #"pop-out search": /http://friendfeed.com/search?q=<QUERY>+<PARAMETER1>&embed=1
+#example: http://FreeFeed.com/search?q=friend+comment%3Akler+comments%3A123+incomment%3Asave+intitle%3Afeed+like%3Akler+likes%3A1+friends%3Akler
+  #"pop-out search": /http://FreeFeed.com/search?q=<QUERY>+<PARAMETER1>&embed=1
   #"save search": /filter?q=QUERY
   #--- Account---
   tools: /about/tools  
   connect: /connect
-  iGoogle: http://www.google.com/ig/add?url=http://friendfeed.com/embed/googlegadget/spec
+  iGoogle: http://www.google.com/ig/add?url=http://FreeFeed.com/embed/googlegadget/spec
   bookmarklet: /share/bookmarklet
   "by mail": /share/mail
   "by IM": /about/im
@@ -87,3 +87,9 @@ Pages:
 Elements:
   footer: "footer"
   "list of my groups": "div.box-header-groups"
+  header: "header"
+  sidebar: "sidebar"
+  profile: "profile"
+  feed: "feed"
+  postbox: "postbox"
+  commentbox: "commentbox"
