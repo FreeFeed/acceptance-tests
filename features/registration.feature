@@ -4,8 +4,13 @@ Feature: Registration
   subscribe to people.
 
   #doc: https://docs.google.com/document/d/12juTn1Szm-TRf-sYDzVXD_soJ4fgceH70bxGV7q6of4/edit#
-  #see additional notes at the bottom
 
+  #todo - are we planning to implement this?
+  #password validation
+  #username validation (longer than 25 symbols, special characters, etc)
+  #make my feed public (anyone can read it) checked by default
+  #confirm email flow - it's possible to log in via username when email is not yet confirmed - https://www.mail-archive.com/FreeFeed@googlegroups.com/msg00268.html
+  
   Scenario: Step 1: User doesn't fill the fields
     Given I am on "Registration" page
 	  And fields are empty
@@ -17,7 +22,7 @@ Feature: Registration
   Scenario: Step 1: Empty Name error
     Given I am on "Registration" page
 	When I fill "Email Address" with "freefeed.net+unverified@example.com"
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
 	  And I press "Register" button
 	Then I am on "Registration" page
@@ -27,7 +32,7 @@ Feature: Registration
   Scenario: Step 1: Empty email address error
     Given I am on "Registration" page
 	When I fill "Name" with "_testunverified"
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
 	  And I press "Register" button
 	Then I am on "Registration" page
@@ -39,7 +44,7 @@ Feature: Registration
 	When I fill "Name" with "_testunverified"
 	  And I fill "Email Address" with "freefeed.net+unverified"
 #Can we use standard regexp here? or do I need to fill all wrong email types?
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
 	  And I press "Register" button
 	Then I am on "Registration" page
@@ -48,7 +53,6 @@ Feature: Registration
 
   Scenario: Step 1: Empty password error
     Given I am on "Registration" page
-	When I press "Register" button
 	When I fill "Name" with "_testunverified"
 	  And I fill "Email Address" with "freefeed.net+unverified@example.com"
 	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
@@ -61,7 +65,7 @@ Feature: Registration
     Given I am on "Registration" page
 	When I fill "Name" with "_testunverified"
 	  And I fill "Email Address" with "freefeed.net+unverified@example.com"
-	  And I fill "FriendFeed Password" with "голубика"
+	  And I fill "FreeFeed Password" with "голубика"
 	  And I fill "Re-enter Password" with "голубика"
 #Again, do I need separate scenarios for every "incorrect password"?
 #too short, too long, not latin, maybe wrong combo?
@@ -75,7 +79,7 @@ Feature: Registration
     Given I am on "Registration" page
 	When I fill "Name" with "_testunverified"
 	  And I fill "Email Address" with "freefeed.net+unverified@example.com"
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I press "Register" button
 	Then I am on "Registration" page
 	  And I should see "Please re-enter your password"
@@ -85,7 +89,7 @@ Feature: Registration
     Given I am on "Registration" page
 	When I fill "Name" with "_testunverified"
 	  And I fill "Email Address" with "freefeed.net+unverified@example.com"
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I fill "Re-enter Password" with "pepyatka321"
 	  And I press "Register" button
 	Then I am on "Registration" page
@@ -97,7 +101,7 @@ Feature: Registration
 	  And there is user "_testuser" with password "ntcnbhjdfybt"
 	When I fill in "Name" with "_testuser"
 	  And I fill "Email Address" with "freefeed.net+unverified@example.com"
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
 	  And I press "Register" button
 	Then I am on "Registration" page
@@ -106,10 +110,9 @@ Feature: Registration
 
   Scenario: Step 1: Registered
     Given I am on "Registration" page
-	  And all fields are filled correctly
 	When I fill in "Name" with "_testunverified"
 	  And I fill "Email Address" with "freefeed.net+unverified@example.com"
-	  And I fill "FriendFeed Password" with "ntcnbhjdfybt"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
 	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
 	  And I press "Register" button
 	Then I am on "Find Friends" page
@@ -120,13 +123,22 @@ Feature: Registration
 	When I press "Next: Friend recommendations" button
 	Then I am on "Recommendations" page
 
-  Scenario: Step 3: Go to FriendFeed
+  Scenario: Step 3: Go to FreeFeed
     Given I am on "Recommendations" page
-	When I press "Next: See your FriendFeed!" button
+	When I press "Next: See your FreeFeed!" button
 	Then I am on "Home" page
 	  And I am logged in
 
-	
-  #make my feed public (anyone can read it) checked by default
-  #Create my account button
-  #confirm email flow
+  Scenario: Create private feed
+    Given I am on "Registration page"
+	When I fill in "Name" with "privateuser"
+	  And I fill "Email Address" with "freefeed.net+private@example.com"
+	  And I fill "FreeFeed Password" with "ntcnbhjdfybt"
+	  And I fill "Re-enter Password" with "ntcnbhjdfybt"
+	  And I uncheck "Make my feed public" checkbox
+	  And I press "Register" button
+	  And I press "Next: Friend recommendations" button
+	  And I press "Next: See your FreeFeed!" button
+	  And I follow "Sign out" link
+	  And I open "privateuser" feed
+	Then I should see "has a private feed"

@@ -1,7 +1,6 @@
 Feature: Page elements.
   As a user I want to be able to see all page elements where they should be.
 
-  #Login error
   #Home feed
   #Direct messages
   #My subscriptions
@@ -17,17 +16,18 @@ Feature: Page elements.
   #email/im/desktop notifications
   #done Home not logged
   #done Login
+  #done Login error
   #done Registration
 
   Scenario: Home page, not logged in
     Given I am on the homepage
-     Then I should see "Join FriendFeed + fiend your friends with one click via:"
+     Then I should see "Join FreeFeed + fiend your friends with one click via:"
       And I should see "or sign up with your email address"
 	  And I should see "Already have an account?"
       And I should see "Username"
       And I should see "Password"
 	  And I should see "Created an account via Google, Facebook, or Twitter? Sign in here"
-	  And I should see "Join FriendFeed or sign in to get started"
+	  And I should see "Join FreeFeed or sign in to get started"
       And I should see footer
       And I should not see "Home"
       And I should not see "Direct Messages"
@@ -64,16 +64,18 @@ Feature: Page elements.
      Then I should be on "Registration" page
 	  And I should see "Create your account"
 	  And I should see "Find your friends"
-	  And I should see "FriendFeed!"
+	  And I should see "FreeFeed!"
 	  And I should see "Sign up with one click:"
-	  And I should see "Join FriendFeed + find your firends with one click via:"
+	  And I should see "Join FreeFeed + find your firends with one click via:"
 	  And I should see "Or fill out the form below:"
 	  And I should see "Have a Facebook account? Log in to prefill the form below with your profile information."
       And I should see "Name"
 	  And I should see "Email Address"
-      And I should see "FriendFeed Password"
+      And I should see "FreeFeed Password"
       And I should see "Re-enter Password"
       And I should see "Register" button
+	  And I should see "Make my feed public" checkbox
+	  And "Make my feed public" checkbox is checked
 	  And I should see "Terms of Service"
 	  And I should see "Privacy Policy"
       And I should not see a footer
@@ -95,11 +97,11 @@ Feature: Page elements.
      Then I should be on "Find Friends" page
 	  And I should see "Create your account"
 	  And I should see "Find your friends"
-	  And I should see "FriendFeed!"
-	  And I should see "Popular FriendFeeders"
-	  And I should see "The folks below are popular among other FriendFeeders, so you might find their feeds interesting as well."
+	  And I should see "FreeFeed!"
+	  And I should see "Popular FreeFeeders"
+	  And I should see "The folks below are popular among other FreeFeeders, so you might find their feeds interesting as well."
 	  #And I should see popular users
-	  And I should see "Next: See your FriendFeed!" button
+	  And I should see "Next: See your FreeFeed!" button
       And I should see a footer
 
   Scenario: Login error page
@@ -108,7 +110,7 @@ Feature: Page elements.
 	  And press "Sign in" button
 	 Then I should be on "Login error" page
 	  And I should see logo
-	  And I should see "Sign in to FriendFeed"
+	  And I should see "Sign in to FreeFeed"
 	  And I should see "Email or username"
 	  And I should see "Password"
 	  And I should see "Forgot your password?"
@@ -118,6 +120,11 @@ Feature: Page elements.
 	  And I should see "Facebook" button
 	  And I should see "Google" button
 	  And I should see "Twitter" button
+<<<<<<< HEAD
 	  And I should see "Create an account"
+=======
+	  And I should see "New to FreeFeed?"
+	  And I should see "Create an account"
+>>>>>>> Naming changes
 	  And I should see footer
   
