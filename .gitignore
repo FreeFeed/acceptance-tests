@@ -1,2 +1,2 @@
-/bin
-/vendor
+node_modules
+.DS_Store
