@@ -1,5 +1,5 @@
 describe('Anonymous user can browse', () => {
-  it('Visits main page and sees a weclome page with a signup link', () => {
+  it('Visits main page and sees a welcome page with a signup link', () => {
     cy.visit('/');
 
     cy.get('header')
