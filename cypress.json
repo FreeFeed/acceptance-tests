@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://candy.freefeed.net",
+  "baseUrl": "http://localhost:3333/",
   "integrationFolder": "cypress/tests",
   "defaultCommandTimeout": 5000,
   "video": false
