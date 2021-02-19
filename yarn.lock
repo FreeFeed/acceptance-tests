@@ -482,6 +482,18 @@ cross-spawn@^7.0.0:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+cypress-file-upload@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/cypress-file-upload/-/cypress-file-upload-5.0.2.tgz#538722e64747b5bf309399a7df26b470431859cb"
+  integrity sha512-QRPnQPeEaW+HMVB62/htIsKh7Kd/x2uzoHKEQxh7LCD+4IaG0rAjLZupCIjjUh+JnRymgfir8wOYtFSJCNWlpA==
+  dependencies:
+    mime "^2.5.0"
+
+cypress-localstorage-commands@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/cypress-localstorage-commands/-/cypress-localstorage-commands-1.4.0.tgz#4817955be0bf2433563d73392c8f32af74c5f902"
+  integrity sha512-gJfi4M77WGaCdqLR0lcocG4ARqDwEyNZbSXI1ipp2VYAYbUzV6VoNjtKkh800Aabz181MknkBISd54S2fMaILw==
+
 cypress@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.2.1.tgz#27d5fbcf008c698c390fdb0c03441804176d06c4"
@@ -1055,6 +1067,11 @@ mime-types@^2.1.12, mime-types@~2.1.19:
   integrity sha512-0TO2yJ5YHYr7M2zzT7gDU1tbwHxEUWBCLt0lscSNpcdAfFyJOVEpRYNS7EXVcTLNj/25QO8gulHC5JtTzSE2UQ==
   dependencies:
     mime-db "1.45.0"
+
+mime@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.5.0.tgz#2b4af934401779806ee98026bb42e8c1ae1876b1"
+  integrity sha512-ft3WayFSFUVBuJj7BMLKAQcSlItKtfjsKDDsii3rqFDAZ7t11zRe8ASw/GlmivGwVUYtwkQrxiGGpL6gFvB0ag==
 
 mimic-fn@^1.0.0:
   version "1.2.0"
