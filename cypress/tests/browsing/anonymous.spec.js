@@ -1,7 +1,11 @@
-describe('Anonymous user can browse', () => {
-  it('Visits main page and sees a weclome page with a signup link', () => {
-    cy.visit('/');
+const randomUser = require('../../utils/random-user');
 
+describe('Anonymous user can browse', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+
+  it('Visits main page and sees a weclome page with a signup link', () => {
     cy.get('header')
       .findByText(/Sign in/i, { selector: 'a' })
       .should('exist');
@@ -25,9 +29,7 @@ describe('Anonymous user can browse', () => {
     cy.getCookie('privacy').should('have.property', 'value', 'true');
   });
 
-  it('Sees a signin form', () => {
-    cy.visit('/');
-
+  it('Can access signin page', () => {
     cy.get('header')
       .findByText(/Sign in/i, { selector: 'a' })
       .click();
@@ -50,9 +52,7 @@ describe('Anonymous user can browse', () => {
       .should('exist');
   });
 
-  it('Sees a signup form', () => {
-    cy.visit('/');
-
+  it('Can access signup page', () => {
     cy.get('[role=main]')
       .findByText(/Sign up/i, { selector: 'a' })
       .click();
@@ -80,21 +80,43 @@ describe('Anonymous user can browse', () => {
       .should('exist');
   });
 
-  it('Visits @support and sees posts on first two pages', () => {
-    cy.visit('/support');
+  it('Can access public posts', () => {
+    // Prepare a public post
+    const publicUser = randomUser();
 
-    cy.findByRole('alert').should('not.exist');
+    cy.register(publicUser).then((user) => {
+      const authToken = user.authToken;
 
-    cy.findByAltText(/Profile picture of support/i)
-      .closest('[role=region]')
-      .findByText('FreeFeed Support')
-      .should('exist');
+      cy.post('Public post', [publicUser.username], authToken).then(() => {
+        // Check if we can read it
+        cy.visit(`/${publicUser.username}`);
 
-    cy.findByRole('feed').should('exist');
-    cy.findAllByLabelText(/Public post (.+) to support/i).should('have.length', 30);
-    cy.findByText(/Comment/i, { selector: 'a' }).should('not.exist');
+        cy.findByRole('feed').should('exist');
+        cy.findAllByLabelText('Post body').should('have.length', 1);
+        cy.findByRole('feed')
+          .findByText(/Comment/i, { selector: 'a' })
+          .should('not.exist');
+      });
+    });
+  });
 
-    cy.findByText(/Older items/i, { selector: 'a' }).click();
-    cy.findAllByLabelText(/Public post (.+) to support/i).should('have.length', 30);
+  it('Cannot access protected posts', () => {
+    // Prepare a protected post
+    const protectedUser = randomUser();
+
+    cy.register(protectedUser).then((user) => {
+      const authToken = user.authToken;
+      const userId = user.users.id;
+
+      cy.post('Protected post', [protectedUser.username], authToken).then(() => {
+        cy.changeUserPrivacy(userId, 'protected', authToken).then(() => {
+          // Check if we can read it
+          cy.visit(`/${protectedUser.username}`);
+
+          cy.findByRole('feed').should('not.exist');
+          cy.findAllByLabelText('Post body').should('have.length', 0);
+        });
+      });
+    });
   });
 });
