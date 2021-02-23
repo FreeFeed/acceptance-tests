@@ -6,6 +6,8 @@ describe('Users can like comments', () => {
     // 2. user B likes this comment
     // 3. user B sees +1 comment like
     // 4. user A cannot like their own comment
+    // 5. user A can see user B in clikes-popup
+    // 6. user B can unclike
 
     const userA = randomUser();
     const userB = randomUser();
@@ -33,7 +35,18 @@ describe('Users can like comments', () => {
               cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('1 comment like').should('exist');
               cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('Like this comment').click();
               cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('1 comment like').should('exist');
+              cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('1 comment like').click();
+              //here be check for popup later
             });
+
+            cy.login(userB).then(() => {
+              cy.visit(`/${userA.username}/${postId}`);
+              cy.findByRole('article').should('exist');
+              cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('Like this comment').click();
+              cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('1 comment like').should('not.exist');
+              cy.get('[role=main]').findAllByRole('comment').eq(0).findByLabelText('Like this comment').should('exist');
+            });
+
           });
         });
       });
