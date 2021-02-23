@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3333/",
+  "backendUrl": "http://localhost:3000",
   "integrationFolder": "cypress/tests",
   "defaultCommandTimeout": 5000,
   "video": false
