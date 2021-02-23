@@ -29,6 +29,22 @@ import 'cypress-localstorage-commands';
 import 'cypress-file-upload';
 
 const backendUrl = Cypress.config('backendUrl');
+const authTokenLocalStorageName = Cypress.config('authTokenLocalStorageName');
+
+// Login as a user
+Cypress.Commands.add('login', ({ username, password }) => {
+  cy.request({
+    method: 'POST',
+    url: `${backendUrl}/v1/session`,
+    body: {
+      username,
+      password,
+    },
+  }).then((response) => {
+    const authToken = response.body.authToken;
+    window.localStorage.setItem(authTokenLocalStorageName, authToken);
+  });
+});
 
 // Create a new user and log in
 Cypress.Commands.add('register', ({ username, password, email, screenName }) => {

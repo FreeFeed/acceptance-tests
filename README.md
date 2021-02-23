@@ -4,7 +4,7 @@
 1. `yarn cypress:run` to run the headless test suite.
 1. `yarn cypress:open` to open Cypress app and run tests manually or write new ones.
 
-Note: by default the tests are running against your local [development server](https://github.com/FreeFeed/freefeed-server), so it should be installed and running when your run the test suite. You can change the target server by modifying `"baseUrl"` and `"backendUrl"` in `./cypress.json` config file.
+Note: by default the tests are running against your local [development server](https://github.com/FreeFeed/freefeed-server), so it should be installed and running when your run the test suite. You can change the target server by modifying `"baseUrl"`, `"backendUrl"` and `"authTokenLocalStorageName"` in `./cypress.json` config file.
 
 ### Useful links
 
