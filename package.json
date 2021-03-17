@@ -19,6 +19,8 @@
   "homepage": "https://github.com/FreeFeed/acceptance-tests#readme",
   "dependencies": {
     "@testing-library/cypress": "^7.0.3",
-    "cypress": "^6.2.1"
+    "cypress": "^6.2.1",
+    "cypress-file-upload": "^5.0.2",
+    "cypress-localstorage-commands": "^1.4.0"
   }
 }
